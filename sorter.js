@@ -42,7 +42,8 @@ function getSortedTitles (entries) {
   // Note that while A -> Z is considered
   // 'ascending' order by default, it doesn't
   // appear that way in the interface.
-  let ascending = $('#sort_asc').is(":checked")
+  let ascendingButton = $('#sort_asc')
+  let ascending = ascendingButton ? ascendingButton.is(":checked") : false
   if (ascending) sortedTitles.reverse()
   return sortedTitles
 }
@@ -70,7 +71,7 @@ function sortEntries (entries) {
  * Sorts all bookmarks in the bookmarks bar and the
  * 'Other Bookmarks' folder in aphabetical order.
  */
-function sortBookmarks () {
+export function sortBookmarks () {
   const BookmarkBarId = '1'
   const OtherBookmarksId = '2'
   chrome.bookmarks.getChildren(BookmarkBarId, sortEntries)

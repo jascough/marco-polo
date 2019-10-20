@@ -35,7 +35,16 @@ function getTitles(entries) {
  */
 function getSortedTitles (entries) {
   const titles = getTitles(entries)
-  return titles.dirs.sort().concat(titles.bookmarks.sort())
+  titles.dirs.sort()
+  titles.bookmarks.sort()
+  let sortedTitles = titles.dirs.concat(titles.bookmarks)
+  
+  // Note that while A -> Z is considered
+  // 'ascending' order by default, it doesn't
+  // appear that way in the interface.
+  let ascending = $('#sort_asc').is(":checked")
+  if (ascending) sortedTitles.reverse()
+  return sortedTitles
 }
 
 /**

@@ -5,6 +5,8 @@
 
 import { sortBookmarks } from './sorter.js'
 
-chrome.bookmarks.onCreated.addListener(n => {
-    sortBookmarks()
-})
+chrome.bookmarks.onChanged.addListener(n => { sortBookmarks() })
+chrome.bookmarks.onChildrenReordered.addListener(n => { sortBookmarks() })
+chrome.bookmarks.onCreated.addListener(n => { sortBookmarks() })
+chrome.bookmarks.onMoved.addListener(n => { sortBookmarks() })
+chrome.bookmarks.onImportEnded.addListener(n => { sortBookmarks() })

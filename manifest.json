@@ -1,0 +1,14 @@
+{
+    "name": "Marco Polo",
+    "version": "0.1",
+    "manifest_version": 2,
+    "permissions": [
+        "bookmarks"
+    ],
+    "browser_action": {
+        "default_title": "Marco Polo",
+        "default_icon": "attr/icon.png",
+        "default_popup": "popup.html"
+    },
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+}
